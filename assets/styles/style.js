@@ -15,14 +15,15 @@ export default styles = StyleSheet.create({
     padding: 10,
     width: 300,
     borderBottomColor: "#EB5B62",
-    borderBottomWidth: 3,
+    borderBottomWidth: 1,
     color: "#717171",
   },
 
   description: {
     height: 100,
     borderColor: "#EB5B62",
-    borderWidth: 2,
+    borderWidth: 1,
     width: 300,
+    padding: 10,
   },
 });

@@ -1,10 +1,11 @@
 import { View, Text, Image, TextInput, Button, Alert } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-import logo from "../assets/images/logo.jpg";
-import styles from "../assets/styles/style";
+import logo from "../../assets/images/logo.jpg";
+import styles from "../../assets/styles/style";
 import { Link, router } from "expo-router";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import axios from "axios";
+import { AuthContext } from "../../context/AuthContext";
 
 export default function Signup() {
   const [username, setUsername] = useState("");
@@ -12,8 +13,9 @@ export default function Signup() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [description, setDescription] = useState("");
-
   const [errorMessage, setErrorMessage] = useState("");
+
+  const content = useContext(AuthContext);
 
   const handleSubmit = async () => {
     setErrorMessage("");
@@ -67,7 +69,10 @@ export default function Signup() {
           padding: 20,
         }}
       >
-        <Image source={logo} style={{ width: 100, height: 100, margin: 10 }} />
+        <Image
+          source={logo}
+          style={{ width: 100, height: 50, margin: 10, resizeMode: "contain" }}
+        />
         <Text style={{ color: "#717171", fontSize: 32 }}>Sign Up</Text>
 
         <TextInput
@@ -90,6 +95,8 @@ export default function Signup() {
           style={styles.description}
           placeholder="Description"
           onChangeText={(text) => setDescription(text)}
+          multiline={true}
+          numberOfLines={6}
           value={description}
         />
 
@@ -113,7 +120,12 @@ export default function Signup() {
           <Text style={{ color: "red", marginBottom: 10 }}>{errorMessage}</Text>
         ) : null}
 
-        <Button title="Sign up" onPress={handleSubmit} style={styles.button} />
+        <Button
+          title="Sign up"
+          onPress={handleSubmit}
+          style={styles.button}
+          asChild
+        />
 
         <View style={{ flexDirection: "row", color: "#717171", marginTop: 20 }}>
           <Text style={{ color: "#717171" }}>Already have an account?</Text>
