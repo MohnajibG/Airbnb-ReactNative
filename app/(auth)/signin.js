@@ -15,17 +15,18 @@ import {
   Button,
   Alert,
   TouchableOpacity,
+  ActivityIndicator,
 } from "react-native";
 
 export default Signin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordVisible, setPasswordVisible] = useState(false);
-  // const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const { login } = useContext(AuthContext);
 
   const handleSubmit = async () => {
-    // setIsLoading(true);
+    setIsLoading(true);
     try {
       const response = await axios.post(
         "https://lereacteur-bootcamp-api.herokuapp.com/api/airbnb/user/log_in",
@@ -33,10 +34,14 @@ export default Signin = () => {
       );
       Alert.alert("Bravo!", "Vous etes connecter!");
 
-      console.log(response.data.id, response.data.token);
+      // console.log(response.data.id, response.data.token);
       login(response.data.id, response.data.token);
-      // setIsLoading(false);
+      setIsLoading(true);
+
+      // console.log(token);
     } catch (error) {
+      setIsLoading(true);
+
       Alert.alert(
         "Erreur",
         "Email ou Mot de passe non valide. Merci de ressayer."
@@ -95,6 +100,7 @@ export default Signin = () => {
           </TouchableOpacity>
         </View>
         <Button title="Sign in" onPress={handleSubmit} style={styles.button} />
+        {isLoading && <ActivityIndicator size="large" color="#0000ff" />}
 
         <View style={{ flexDirection: "row", color: "#717171" }}>
           <Text style={{ color: "#717171" }}> No account ?</Text>

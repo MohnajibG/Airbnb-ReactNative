@@ -7,8 +7,14 @@ export default function ProfileScreen() {
 
   return (
     <View>
-      <Text>Profil Page</Text>
-      <Button title="Deconnexion" onPress={logout} style={styles.button} />
+      <Text style={{ justifyContent: "center", alignItems: "center" }}>
+        Profil Page
+      </Text>
+      <Button
+        title="Deconnexion"
+        onPress={logout}
+        style={{ justifyContent: "center", alignItems: "center" }}
+      />
     </View>
   );
 }
