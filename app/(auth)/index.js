@@ -15,8 +15,9 @@ export default Home = () => {
         flex: 1,
       }}
     >
-      <Link href="/signin"> ++++</Link>
-      <Image source={logo} style={{ width: 300, height: 300 }} />
+      <Link href="/signin">
+        <Image source={logo} style={{ width: 300, height: 300 }} />
+      </Link>
       <Text style={{ fontSize: 32 }}>Welcome !</Text>
       <Link href={"/signin"} style={styles.button} asChild>
         Sign in
