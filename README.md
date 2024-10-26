@@ -30,4 +30,11 @@ Développement d'une application mobile permettant de lister et de consulter des
 
 - **RoomScreen** : Affichage détaillé d'une pièce avec des informations spécifiques (description, photos supplémentaires, évaluations, etc.).
 - **AroundMeScreen** : Intégration d'une carte interactive pour afficher les logements disponibles à proximité de l'utilisateur.
+- **My Profile**:  Voir les informations personnelles de l'utilisateur :
+-  email, nom d'utilisateur, description.
+-  Afficher la photo de profil de l'utilisateur.
+-  Modifier les informations personnelles : email, nom d'utilisateur, et description.
+-  Mettre à jour la photo de profil.
+-  Option de déconnexion pour terminer la session utilisateur.
+
 
